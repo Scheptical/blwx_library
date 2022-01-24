@@ -1,0 +1,21 @@
+<!--pages/books/Catalogue/Catalogue.wxml-->
+<view class="card-block">
+  <view wx:for="{{category}}" wx:key="index" data-id="{{item.id}}" data-index="{{index}}" class="funcMenuManagerBar">
+    <navigator url="{{item.url}}">
+      <view class="func-lib-bar">
+        <text class="func-lib-bar-text">{{item.name}}</text>
+      </view>
+    </navigator>
+    <view class="divLine"></view>
+  </view>
+</view>
+
+<view class="card-block">
+  <view class="funcMenuManagerBar">
+    <navigator url="/pages/books/Catalogue/unCate/unCate">
+      <view class="func-lib-bar">
+        <text class="func-lib-bar-text">未分类</text>
+      </view>
+    </navigator>
+  </view>
+</view>

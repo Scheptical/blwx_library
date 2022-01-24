@@ -1,0 +1,26 @@
+<!--pages/home/home.wxml-->
+<view class="card">
+    <view class="funcMenuTitle"><text>借还管理</text></view>
+    <view class="funcMenuManagerBox">
+        <view wx:for="{{func_lib_LendReturn}}" wx:key="index" data-id="{{item.func_id}}" data-index="{{index}}" class="func-lib" bindtap="openLendReturnMenu">
+            <image class="func-lib-box-img" src="{{item.func_imgSrc}}"></image>
+            <view class="func-lib-box-text"><text>{{item.func_name}}</text></view>
+        </view>
+    </view>
+</view>
+
+<view class="card">
+    <view class="funcMenuTitle"><text>内容管理</text></view>
+    <view class="funcMenuManagerBox">
+        <view wx:for="{{func_lib_ContentManager}}" wx:key="index" data-id="{{item.func_id}}" data-index="{{index}}" class="func-lib">
+            <navigator url="{{item.func_url}}">
+                <image class="func-lib-box-img" src="{{item.func_imgSrc}}"></image>
+                <view class="func-lib-box-text"><text>{{item.func_name}}</text></view>
+            </navigator>
+        </view>
+    </view>
+</view>
+
+<view class="card">
+    <view class="funcMenuTitle"><text>数据看板</text></view>
+</view>

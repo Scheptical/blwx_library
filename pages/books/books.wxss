@@ -1,0 +1,10 @@
+/* pages/books/books.wxss */
+.func-lib-box{
+    display: inline-block;
+    width: 120rpx;
+    height: 120rpx;
+    padding: 0 5rpx;
+    margin:20rpx 20rpx 0rpx 20rpx;
+    border-radius: 60px;
+}
+

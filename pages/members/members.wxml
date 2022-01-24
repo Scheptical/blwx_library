@@ -1,0 +1,22 @@
+<!--pages/members/members.wxml-->
+<view class="card-block">
+    <view class="funcMenuManagerBar">
+        <navigator url="/pages/members/vips/vips">
+            <view class="func-lib-bar">
+                <image class="func-lib-bar-img" src="/images/book_selected.png"></image><text class="func-lib-bar-text">管理员</text>
+            </view>
+        </navigator>
+        <view class="divLine"></view>
+    </view>
+</view>
+
+<view class="card-block">
+    <view class="funcMenuManagerBar">
+        <navigator url="/pages/members/vips/vips">
+            <view class="func-lib-bar">
+                <image class="func-lib-bar-img" src="/images/book_selected.png"></image><text class="func-lib-bar-text">管理员</text>
+            </view>
+        </navigator>
+        <view class="divLine"></view>
+    </view>
+</view>

@@ -1,0 +1,53 @@
+<!--pages/books/books.wxml-->
+<view class="card-block">
+    <view class="funcMenuManagerBox">
+        <view class="func-lib-box">
+            <navigator url="/pages/books/Scan-book/Scan-book">
+                <image class="func-lib-box-img" src="/images/book_selected.png"></image>
+                <view class="func-lib-box-text"><text>扫码录书</text></view>
+            </navigator>
+        </view>
+        <view class="func-lib-box">
+            <navigator url="/pages/books/Mannual-book/Mannual-book">
+                <image class="func-lib-box-img" src="/images/book_selected.png"></image>
+                <view class="func-lib-box-text"><text>手动录书</text></view>
+            </navigator>
+        </view>
+        <view class="func-lib-box">
+            <navigator url="/pages/books/put-on-shelf/put-on-shelf">
+                <image class="func-lib-box-img" src="/images/book_selected.png"></image>
+                <view class="func-lib-box-text"><text>上架</text></view>
+            </navigator>
+        </view>
+        <view class="func-lib-box">
+            <navigator url="/pages/books/off-the-shelf/off-the-shelf">
+                <image class="func-lib-box-img" src="/images/book_selected.png"></image>
+                <view class="func-lib-box-text"><text>下架</text></view>
+            </navigator>
+        </view>
+    </view>
+</view>
+<view class="card-block">
+    <view class="funcMenuManagerBar">
+        <navigator url="/pages/books/Catalogue/Catalogue">
+            <view class="func-lib-bar">
+                <image class="func-lib-bar-img" src="/images/book_selected.png"></image><text class="func-lib-bar-text">分类</text>
+            </view>
+        </navigator>
+        <view class="divLine"></view>
+        <navigator url="/pages/books/book-shelf/book-shelf">
+            <view class="func-lib-bar">
+                <image class="func-lib-bar-img" src="/images/book_selected.png"></image><text class="func-lib-bar-text">书架</text>
+            </view>
+        </navigator>
+        <view class="divLine"></view>
+        <navigator url="/pages/books/reader-recomme/reader-recomme">
+            <view class="func-lib-bar">
+                    <image class="func-lib-bar-img" src="/images/book_selected.png"></image><text class="func-lib-bar-text">读者荐购</text>
+            </view>
+        </navigator>
+    </view>
+</view>
+<view class="card-block">
+    
+</view>

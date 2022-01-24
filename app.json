@@ -1,0 +1,76 @@
+{
+    "pages": [
+        "pages/home/home",
+        "pages/login/login",
+        "pages/register/register",
+        "pages/books/books",
+        "pages/members/members",
+        "pages/MyLibrary/MyLibrary",
+        "pages/welcome/welcome",
+        "pages/search/search",
+        "pages/Lend_Return/lend/lend",
+        "pages/Lend_Return/return/return",
+        "pages/Lend_Return/overdue/overdue",
+        "pages/Lend_Return/reserve/reserve",
+        "pages/ContentManager/anounce/anounce",
+        "pages/ContentManager/booklists/booklists",
+        "pages/ContentManager/comments/comments",
+        "pages/books/Scan-book/Scan-book",
+        "pages/books/Mannual-book/Mannual-book",
+        "pages/books/put-on-shelf/put-on-shelf",
+        "pages/books/off-the-shelf/off-the-shelf",
+        "pages/books/Catalogue/Catalogue",
+        "pages/books/book-shelf/book-shelf",
+        "pages/books/reader-recomme/reader-recomme",
+        "pages/members/vips/vips",
+        "pages/Lend_Return/Lend_Return",
+        "pages/books/Catalogue/001/001",
+        "pages/books/Catalogue/002/002",
+        "pages/books/Catalogue/003/003",
+        "pages/books/Catalogue/unCate/unCate",
+        "pages/MyLibrary/MyLibInfo/MyLibInfo",
+        "pages/MyLibrary/MyLibAbout/MyLibAbout",
+        "pages/MyLibrary/MyLibQR/MyLibQR"
+    ],
+    "tabBar": {
+        "color": "#e6e6e6",
+        "selectedColor": "#15a966",
+        "backgroundColor": "#ffffff",
+        "borderStyle": "white",
+        "position": "bottom",
+        "list": [
+            {
+                "pagePath": "pages/home/home",
+                "text": "首页",
+                "iconPath": "images/home.png",
+                "selectedIconPath": "images/home_selected.png"
+            },
+            {
+                "pagePath": "pages/books/books",
+                "text": "书籍",
+                "iconPath": "images/book.png",
+                "selectedIconPath": "images/book_selected.png"
+            },
+            {
+                "pagePath": "pages/members/members",
+                "text": "成员",
+                "iconPath": "images/man.png",
+                "selectedIconPath": "images/man_selected.png"
+            },
+            {
+                "pagePath": "pages/MyLibrary/MyLibrary",
+                "text": "设置",
+                "iconPath": "images/setting.png",
+                "selectedIconPath": "images/setting_selected.png"
+            }
+        ]
+    },
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "",
+        "navigationBarTextStyle": "black"
+    },
+    "style": "v2",
+    "sitemapLocation": "sitemap.json"
+}

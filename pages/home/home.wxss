@@ -1,0 +1,8 @@
+/* pages/home/home.wxss */
+.funcMenuTitle{
+    font-size: 42rpx;
+    font-weight: 900;
+    color: #000;
+    width: max-content;
+    background-image: linear-gradient(0deg,#00d37d 30%,transparent 30%);
+}

@@ -1,0 +1,11 @@
+<!--pages/MyLibrary/MyLibrary.wxml-->
+<view class="card-block">
+  <view wx:for="{{func_set_category}}" wx:key="index" data-id="{{item.id}}" data-index="{{index}}" class="funcMenuManagerBar">
+    <navigator url="{{item.url}}">
+      <view class="func-lib-bar">
+        <text class="func-lib-bar-text">{{item.name}}</text>
+      </view>
+    </navigator>
+    <view class="divLine"></view>
+  </view>
+</view>

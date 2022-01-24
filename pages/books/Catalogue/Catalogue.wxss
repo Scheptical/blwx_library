@@ -1,0 +1,5 @@
+.category-bar{
+  display: flex;
+  font-size: 32rpx;
+  justify-content: left;
+}
