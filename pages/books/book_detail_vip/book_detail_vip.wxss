@@ -1,0 +1,74 @@
+.book_detail_text-Right {
+    color: #999;
+    width: 400rpx;
+    margin-right: 60rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: right;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+.book_detail_cover {
+    width: 240rpx;
+    height: 240rpx;
+}
+
+.book_detailBar {
+    display: flex;
+    justify-content: space-between;
+    text-align: justify;
+    align-items: center;
+    padding: 10rpx 20rpx;
+    height: max-content;
+}
+
+.book_detailBar_right {
+    display: flex;
+    align-items: center;
+}
+
+.divLine_book_detail {
+    background: #dddddd;
+    height: 1rpx;
+    width: 100%;
+    margin-left: 15rpx;
+}
+
+.book_title_view {
+    display: flex;
+}
+
+.title_view_right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.book_info_basic {
+    margin-left: 20rpx;
+}
+
+.text_bookTitle {
+    font-size: 34rpx;
+    font-weight: 900;
+    display: -webkit-box;
+    word-break: break-all;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    width: 420rpx;
+}
+
+.text_bookPrice {
+    font-size: 32rpx;
+    font-weight: 900;
+    color: darkorange;
+}
+.text_ISBN {
+    font-size: 24rpx;
+    color: #999;
+}

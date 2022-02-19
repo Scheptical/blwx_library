@@ -1,14 +1,19 @@
-/**app.wxss**/
-
 @import "icon.wxss";
 @import "main.wxss";
 
-page{
+page {
   background-color: #f5f7f6;
 }
-.selectedGreen{
+
+.reader-tabBar_intro {
+  margin: 30px;
+  text-align: center;
+}
+
+.selectedGreen {
   color: #00d37d;
 }
+
 .container {
   height: 100%;
   display: flex;
@@ -17,77 +22,125 @@ page{
   justify-content: space-between;
   padding: 200rpx 0;
   box-sizing: border-box;
-} 
-.card{
+}
+
+.card {
   display: flex;
   color: black;
   flex-direction: column;
   flex-wrap: wrap;
   background-color: #ffffff;
   border-radius: 30rpx;
-  box-shadow: 4px 4px 8px  rgba(49, 49, 49, 0.1);
-  padding: 10px;
-  margin-top: 10px;
-  margin-left: 10px;
-  margin-right: 10px;
+  box-shadow: 8rpx 8rpx 16rpx rgba(49, 49, 49, 0.1);
+  padding: 20rpx;
+  margin: 20rpx 20rpx 0 20rpx;
 }
-.card-block{
+
+.card-block {
   display: flex;
   color: black;
   flex-direction: column;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   background-color: #ffffff;
-  padding: 10rpx;
-  margin-bottom: 12rpx;
+  margin-bottom: 15rpx;
 }
-.funcMenuManagerBox{
+
+.card-block-padding {
+  padding: 20rpx 0;
+}
+
+.funcMenuManagerBox {
+  display: inline-block;
+  padding: 0 5rpx;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.funcMenuManagerBar {
   padding: 0 5rpx;
   text-align: center;
 }
-.funcMenuManagerBar{
-  padding: 0 5rpx;
-  text-align: center;
-}
-.func-lib{
+
+.func-lib {
   display: inline-block;
   width: 120rpx;
   height: 120rpx;
   padding: 0 5rpx;
-  margin:20rpx 20rpx 0rpx 20rpx;
-  border-radius: 60px;
+  margin: 20rpx 20rpx 0rpx 20rpx;
 }
-.func-lib-box-text{
+
+.funcMenuTitle {
+  font-size: 42rpx;
+  font-weight: 900;
+  width: max-content;
+  background-image: linear-gradient(0deg, #00d37d 30%, transparent 30%);
+  margin: 0 10rpx;
+}
+
+.func-lib-box-text {
   font-size: 26rpx;
   text-align: center;
 }
-.func-lib-box-img{
+
+.func-lib-box-img {
   width: 85rpx;
   height: 85rpx;
   margin: 20rpx 0 5rpx;
 }
-.func-lib-bar{
+
+.func-lib-bar {
   display: flex;
   text-align: center;
   flex-direction: row;
   margin: 10rpx 0 10rpx;
 }
-.func-lib-bar-img{
-  width: 90rpx;
-  height: 90rpx;
-  margin: 5rpx 10rpx 0 5rpx;
-  padding: 5rpx 10rpx 0 5rpx;
+
+.func-lib-bar-padding {
+  padding-left: 20rpx;
+}
+
+.func-lib-bar-img {
+  width: 100rpx;
+  height: 100rpx;
+  padding: 5rpx;
+  margin: 10rpx 10rpx 0 10rpx;
   vertical-align: middle;
 }
-.func-lib-bar-text{
-  font-size: 32rpx;
-  text-align: center;
+
+.func-lib-bar-text {
+  font-size: 34rpx;
+  text-align: left;
   vertical-align: middle;
   padding: 30rpx 0;
+  width: fit-content;
 }
-.divLine{
+
+.divLine {
+  background: #dddddd;
+  height: 1rpx;
+  width: 100%;
+  margin-left: 110rpx;
+}
+
+.divLine_Catalogue {
   background: #dddddd;
   height: 1rpx;
   width: 100%;
   margin-left: 15rpx;
 }
 
+.arrowView {
+  display: flex;
+  align-items: center;
+}
+
+.arrow {
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid #999;
+  border-right: 2px solid #999;
+  position: absolute;
+  right: 30rpx;
+  transform: rotate(45deg);
+  margin: 0
+}

@@ -1,0 +1,83 @@
+<block>
+    <view class="card-block card-block-padding" data-id="{{book_detail_vip._id}}">
+        <view class="book_title_view">
+            <!-- 封面图片预览 -->
+            <view bindtap="PreviewCoverImg">
+                <image class="book_detail_cover" src="{{book_detail_vip.book_cover}}"></image>
+            </view>
+            <!-- 书籍信息展示 -->
+            <view class="title_view_right" data-curbookid="{{book_detail_vip._id}}" bindtap="SetBookDetail">
+                <text class="book_info_basic text_bookTitle">{{book_detail_vip.book_title}}</text>
+                <text class="book_info_basic text_bookPrice">{{book_detail_vip.original_price}}</text>
+                <view class="book_info_basic text_ISBN" style="display: flex; flex-direction: column; flex-wrap: wrap;">
+                    <text style="line-height: 40rpx;">{{book_detail_vip.publisher}} · {{book_detail_vip.publication_date}}</text>
+                    <text>ISBN: {{book_detail_vip.ISBN}}</text>
+                </view>
+            </view>
+            <!-- 箭头容器 -->
+            <view class="arrowView">
+                <view class="arrow"></view>
+            </view>
+        </view>
+    </view>
+
+    <view class="card-block">
+        <view class="funcMenuManagerBar">
+            <!-- 分类 -->
+            <view class="book_detailBar" bindtap="SetCategory">
+                <text class="func-lib-bar-text">分类</text>
+                <view class="book_detailBar_right">
+                    <text class="book_detail_text-Right">{{book_detail_vip.book_category[1]}}</text>
+                    <view class="arrowView">
+                        <view class="arrow"></view>
+                    </view>
+                </view>
+            </view>
+
+            <view class="divLine_book_detail"></view>
+            <!-- 借阅记录 -->
+            <view class="book_detailBar" bindtap="QueryBorrowRecord">
+                <text class="func-lib-bar-text">借阅记录</text>
+                <view class="book_detailBar_right">
+                    <view class="arrowView">
+                        <view class="arrow"></view>
+                    </view>
+                </view>
+            </view>
+
+        </view>
+    </view>
+</block>
+
+<!-- 副本信息 -->
+<block>
+    <view class="card-block">
+        <!-- 在馆副本数目 -->
+        <view class="book_detailBar">
+            <text class="func-lib-bar-text">在馆副本：{{book_copies.copyNum}}本</text>
+            <!-- 本书副本编号 -->
+            <view class="book_detailBar_right">
+                <text class="book_detail_text-Right">副本编号：{{book_detail_vipShelf.copy_id}}</text>
+            </view>
+        </view>
+        <view class="divLine_book_detail"></view>
+        <!-- 循环打印副本信息 -->
+        <view wx:for="{{book_copies.copiesDetail}}" wx:key="index" class="book_detailBar">
+            <!-- 副本ID -->
+            <view>
+                <text class="func-lib-bar-text">{{item.copy_id}}</text>
+            </view>
+            <!-- 副本详情 -->
+            <view class="title_view_right" data-curbookid="{{item.copy_id}}">
+                <text class="book_info_basic text_bookTitle">{{item.OnShelfPos[1]}}</text>
+                <view class="book_info_basic text_ISBN" style="display: flex; flex-direction: column; flex-wrap: wrap;">
+                    <text>{{item.OnShelfDate}} 录入</text>
+                </view>
+            </view>
+            <!-- 箭头容器 -->
+            <view class="arrowView">
+                <view class="arrow"></view>
+            </view>
+        </view>
+    </view>
+</block>

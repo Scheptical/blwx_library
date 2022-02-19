@@ -1,1 +1,21 @@
-/* pages/login/login.wxss */
+.LibraryAvatarBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 50% 0 15% 0;
+}
+
+.LibraryAvatar {
+    width: 300rpx;
+    height: 300rpx;
+}
+
+.AdminAccessButton {
+    bottom: 20rpx;
+}
+
+.button-margin {
+    margin-top: 20rpx;
+}

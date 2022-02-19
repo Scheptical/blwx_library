@@ -1,65 +1,81 @@
-// pages/books/books.js
 Page({
 
-    /**
-     * 页面的初始数据
-     */
     data: {
-
+        func_lib_bookShift: [
+            {
+                func_name: '扫码录书',
+                func_id: 0,
+                func_imgSrc: '/images/book_selected.png',
+                func_url: '/pages/books/Scan-book/Scan-book'
+            },
+            {
+                func_name: '手动录书',
+                func_id: 1,
+                func_imgSrc: '/images/book_selected.png',
+                func_url: '/pages/books/Mannual-book/Mannual-book'
+            },
+            {
+                func_name: '上架',
+                func_id: 2,
+                func_imgSrc: '/images/book_selected.png',
+                func_url: '/pages/books/put-on-shelf/put-on-shelf'
+            },
+            {
+                func_name: '下架',
+                func_id: 3,
+                func_imgSrc: '/images/book_selected.png',
+                func_url: '/pages/books/off-the-shelf/off-the-shelf'
+            }
+        ],
+        func_lib_bookViewer: [{
+                func_name: '分类',
+                func_id: 4,
+                func_imgSrc: '/images/book_selected.png',
+                func_url: '/pages/books/Catalogue/Catalogue'
+            },
+            {
+                func_name: '书架',
+                func_id: 5,
+                func_imgSrc: '/images/book_selected.png',
+                func_url: '/pages/books/book-shelf/book-shelf'
+            },
+            {
+                func_name: '读者荐购',
+                func_id: 6,
+                func_imgSrc: '/images/book_selected.png',
+                func_url: '/pages/books/reader-recomme/reader-recomme'
+            }
+        ]
     },
 
-    /**
-     * 生命周期函数--监听页面加载
-     */
     onLoad: function (options) {
 
     },
 
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
     onReady: function () {
 
     },
 
-    /**
-     * 生命周期函数--监听页面显示
-     */
     onShow: function () {
 
     },
 
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
     onHide: function () {
 
     },
 
-    /**
-     * 生命周期函数--监听页面卸载
-     */
     onUnload: function () {
 
     },
 
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
     onPullDownRefresh: function () {
 
     },
 
-    /**
-     * 页面上拉触底事件的处理函数
-     */
     onReachBottom: function () {
 
     },
 
-    /**
-     * 用户点击右上角分享
-     */
     onShareAppMessage: function () {
 
     }

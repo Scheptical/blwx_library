@@ -1,1 +1,5 @@
-/* pages/books/book-shelf/book-shelf.wxss */
+.addNew{
+    font-size: 34rpx;
+    color: blue;
+    padding: 30rpx 0;
+  }

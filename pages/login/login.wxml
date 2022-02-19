@@ -1,2 +1,12 @@
-<!--pages/login/login.wxml-->
-<text>pages/login/login.wxml</text>
+<view class="LibraryAvatarBox">
+    <image src="/images/book_selected.png" class="LibraryAvatar"></image>
+</view>
+
+<view class="AdminAccessButton">
+    <view class="button-margin">
+        <button type="primary" hover-class="button-hover" open-type="getUserInfo" bindgetuserinfo="getUserInfo">读者授权</button>
+    </view>
+    <view class="button-margin">
+        <button type="default" hover-class="button-hover" open-type="getUserInfo" bindgetuserinfo="getAdminInfo">管理授权</button>
+    </view>
+</view>

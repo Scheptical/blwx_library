@@ -1,0 +1,62 @@
+<!-- 详情：最新上架 -->
+<block wx:if="{{DetailIndex == 'New'}}">
+    <scroll-view scroll-y="true" class="formList-view">
+        <view class="bookItem-view" wx:for="{{curBooksInfo}}" wx:key="index" bindtap="OpenBookDetail" data-id="{{item._id}}">
+            <view class="bookCover-view">
+                <image class="bookCover-img" src="{{item.book_cover}}" mode="aspectFit"></image>
+            </view>
+            <view class="bookInfo-view">
+                <view class="bookInfoText-view">
+                    <text class="text-bookTitle">{{item.book_title}}</text>
+                    <text class="text-bookPubInfo">{{item.publication_date}} · {{item.publisher}}</text>
+                    <text class="text-bookAuthor">{{item.author}}</text>
+                </view>
+                <view>
+                    <text class="text-bookOnShelfDate">{{item.OnShelfDate}} 上架</text>
+                </view>
+            </view>
+        </view>
+    </scroll-view>
+</block>
+
+
+<!-- 详情：热门书籍 -->
+<block wx:if="{{DetailIndex == 'Hot'}}">
+    <view class="formList-view">
+        <view class="bookItem-view">
+            <view class="bookCover-view">
+                <image class="bookCover-img" src="" mode="aspectFit"></image>
+            </view>
+            <view class="bookInfo-view">
+                <view class="bookInfoText-view">
+                    <text class="text-bookTitle"></text>
+                    <text class="text-bookAuthor"></text>
+                    <text class="text-bookPubInfo"></text>
+                </view>
+                <view>
+                    <text class="text-bookOnShelfDate"></text>
+                </view>
+            </view>
+        </view>
+    </view>
+</block>
+
+
+<!-- 详情：查看目录 -->
+<block wx:if="{{DetailIndex == 'Category'}}">
+    <view>
+        <view>
+            <view>
+                <text>Category Name</text>
+                <text>Book Num</text>
+            </view>
+            <view>
+                <view>
+                    <image></image>
+                    <image></image>
+                    <image></image>
+                </view>
+            </view>
+        </view>
+    </view>
+</block>

@@ -1,0 +1,7 @@
+.selected_Img {
+    width: 40rpx;
+    height: 40rpx;
+    position: fixed;
+    right: 34rpx;
+    margin: 0;
+}

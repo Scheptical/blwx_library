@@ -1,0 +1,13 @@
+@import "../../Catalogue/CatalogueDetail/CatalogueDetail.wxss";
+
+.copyInfo-view {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.OnshelfDate-text {
+    font-size: 24rpx;
+    color: rgb(204, 204, 204);
+}

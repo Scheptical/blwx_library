@@ -1,0 +1,118 @@
+page {
+    background-color: #fff;
+}
+
+/* 为底部tabBar预留空间 */
+.viewMarginBottom {
+    margin-bottom: 100rpx;
+}
+
+/* “最新上架”样式集 */
+.homeView-New {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 20rpx;
+    margin: 20rpx 20rpx 0 20rpx;
+}
+
+.hometitle-New-View {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.homeTitle-text {
+    font-size: 42rpx;
+    font-weight: 900;
+    background-image: linear-gradient(0deg, #00d37d 30%, transparent 30%);
+    width: max-content;
+}
+
+.homeTitleRight-View {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.homeArrow {
+    width: 18rpx;
+    height: 18rpx;
+    border-top: 10rpx solid rgb(204, 204, 204);
+    border-right: 10rpx solid rgb(204, 204, 204);
+    position: absolute;
+    right: 30rpx;
+    transform: rotate(45deg);
+    margin: 0
+}
+
+.homeArrow-text {
+    font-size: 30rpx;
+    font-weight: 700;
+    color: rgb(204, 204, 204);
+    margin-right: 30rpx;
+}
+
+.display-New {
+    display: flex;
+    flex-direction: row;
+    padding: 0 5rpx;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20rpx 0 0 0;
+}
+
+.display-New > .book_item {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    margin-right: 30rpx;
+}
+
+.display-New > .book_item > .book_cover-View {
+    width: 180rpx;
+    height: 260rpx;
+    border: 1rpx solid rgb(204, 204, 204);
+    border-radius: 8rpx;
+    background-color: #fff;
+}
+
+.display-New-book_cover {
+    width: 180rpx;
+    height: 260rpx;
+    border-radius: 8rpx;
+}
+
+.display-New > .book_item > .book_title-View {
+    display: flex;
+    flex-direction: column;
+    width: 180rpx;
+}
+
+.display-New-book_title {
+    font-size: 28rpx;
+    font-weight: 700;
+    display: -webkit-box;
+    word-break: break-all;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    width: 180rpx;
+    text-align: left;
+}
+
+.display-New-book_author {
+    font-size: 24rpx;
+    color: rgb(204, 204, 204);
+    display: -webkit-box;
+    word-break: break-all;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    width: 180rpx;
+    text-align: left;
+}

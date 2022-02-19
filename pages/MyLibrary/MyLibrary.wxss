@@ -1,1 +1,6 @@
 /* pages/MyLibrary/MyLibrary.wxss */
+.divLine_MyLib {
+    background: #dddddd;
+    height: 1rpx;
+    width: 100%;
+  }

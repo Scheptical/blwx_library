@@ -1,69 +1,123 @@
-// pages/books/Catalogue/Catalogue.js
+const The_App = getApp()
+
 Page({
-
-    /**
-     * 页面的初始数据
-     */
     data: {
-        category: [
-            {name:'分类1',id:'cate-001',url:'/pages/books/Catalogue/001/001'},
-            {name:'分类2',id:'cate-002',url:'/pages/books/Catalogue/002/002'},
-            {name:'分类3',id:'cate-003',url:'/pages/books/Catalogue/003/003'}
-        ]
+        addNew: 'cate',
+        category_list: [],
     },
 
-    /**
-     * 生命周期函数--监听页面加载
-     */
+    AddNewCategory: function (e) {
+        wx.navigateTo({
+          url: '../NewCate_Shelf/NewCate_Shelf?addNew=' + this.data.addNew,
+        })
+    },
+
+    OpenCategoryDetail: function (e) {
+        var cate_info = e.currentTarget.dataset.info
+        wx.navigateTo({
+            url: '/pages/books/Catalogue/CatalogueDetail/CatalogueDetail?cate_info=' + JSON.stringify(cate_info),
+        })
+        
+    },
+
     onLoad: function (options) {
+        var self = this
 
+        // 调用云函数CategorySet提取目录信息，对目录进行排序，并对目录中书本数进行统计
+        // 调用数据库，请求数据：目录
+        wx.cloud.callFunction({
+            name: 'CategorySet',
+            success: res_category => {
+                // 封装好的自定义排序规则函数
+                var objectArraySort = function (keyName) {
+                    return function (objectN, objectM) {
+                        var valueN = objectN[keyName][0]
+                        var valueM = objectM[keyName][0]
+                        if (valueN > valueM) {
+                            return 1
+                        } else if (valueN < valueM) {
+                            return -1
+                        } else {
+                            return 0
+                        }
+                    }
+                }
+                // 按_id排序
+                var categoryArr = res_category.result.list
+                var categoryArrSorted = categoryArr.sort(objectArraySort('_id'))
+                // 将排好序的分类信息传递给页面数据
+                self.setData({
+                    category_list: categoryArrSorted
+                })
+                // 将排好序的分类信息传递给全局数据
+                The_App.globalData.categoryData = categoryArrSorted
+            },
+            fail: res_category => {
+                console.log('error>>>', res_category)
+            }
+        })
     },
 
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
     onReady: function () {
 
     },
 
-    /**
-     * 生命周期函数--监听页面显示
-     */
     onShow: function () {
+        var self = this
 
+        //调用云函数CategorySet提取目录信息，对目录进行排序，并对目录中书本数进行统计
+        wx.cloud.callFunction({
+            name: 'CategorySet',
+            success: res_category => {
+
+                //自定义排序规则函数
+                var objectArraySort = function (keyName) {
+                    return function (objectN, objectM) {
+                        var valueN = objectN[keyName][0]
+                        var valueM = objectM[keyName][0]
+                        if (valueN > valueM) {
+                            return 1
+                        } else if (valueN < valueM) {
+                            return -1
+                        } else {
+                            return 0
+                        }
+                    }
+                }
+
+                //按_id排序
+                var categoryArr = res_category.result.list
+                var categoryArrSorted = categoryArr.sort(objectArraySort('_id'))
+
+                self.setData({
+                    category_list: categoryArrSorted
+                })
+
+                The_App.globalData.categoryData = self.data.category_list
+
+            },
+            fail: res_category => {
+                console.log('error>>>', res_category)
+            }
+        })
     },
 
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
     onHide: function () {
 
     },
 
-    /**
-     * 生命周期函数--监听页面卸载
-     */
     onUnload: function () {
 
     },
 
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
     onPullDownRefresh: function () {
 
     },
 
-    /**
-     * 页面上拉触底事件的处理函数
-     */
     onReachBottom: function () {
 
     },
 
-    /**
-     * 用户点击右上角分享
-     */
     onShareAppMessage: function () {
 
     }

@@ -1,0 +1,40 @@
+@import "/pages/books/book_detail_vip/book_detail_vip.wxss";
+
+.save_botton{
+    display: flex;
+    align-items: center;
+    border-radius: 20rpx;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    color: #fff;
+    font-size: 50rpx;
+    font-weight: 900;
+    background-color: palegreen;
+}
+
+.save_botton_text {
+    text-align: center;
+}
+
+.book_cover-detail {
+    width: 240rpx;
+    height: 240rpx;
+    margin: 10rpx 30rpx 10rpx 0;
+}
+
+.fixedButton {
+    display: flex;
+    position: fixed;
+    bottom: 20rpx;
+    justify-content: center;
+    width: 100%;
+}
+
+.card-block {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    background-color: #fff;
+    margin-bottom: 120rpx;
+  }

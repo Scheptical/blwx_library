@@ -1,0 +1,74 @@
+page {
+    background-color: #fff;
+}
+
+/* 详情：最新上架 */
+/* 详情：热门书籍 */
+.formList-view {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 20rpx;
+}
+
+.bookItem-view {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin-bottom: 20rpx;
+}
+
+.bookItem-view > .bookCover-view {
+    width: 180rpx;
+    height: 260rpx;
+    border: 1rpx solid rgb(204, 204, 204);
+    border-radius: 8rpx;
+    background-color: #fff;
+}
+
+.bookItem-view > .bookCover-view > .bookCover-img {
+    width: 180rpx;
+    height: 260rpx;
+    border-radius: 8rpx;
+}
+
+.bookItem-view > .bookInfo-view {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin-left: 20rpx;
+    width: 400rpx;
+}
+
+.bookItem-view > .bookInfo-view > .bookInfoText-view {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.text-bookTitle {
+    font-size: 32rpx;
+    font-weight: 700;
+    display: -webkit-box;
+    word-break: break-all;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    width: 350rpx;
+}
+
+.text-bookPubInfo {
+    margin-top: 30rpx;
+    font-size: 24rpx;
+}
+
+.text-bookAuthor {
+    font-size: 24rpx;
+}
+
+.text-bookOnShelfDate {
+    font-size: 22rpx;
+    color: rgb(204, 204, 204);
+}

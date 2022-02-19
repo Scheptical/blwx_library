@@ -1,0 +1,10 @@
+<!-- 新建目录 -->
+<block wx:if="{{addNew == 'cate'}}">
+    <text>cate</text>
+</block>
+
+
+<!-- 新建书架 -->
+<block wx:if="{{addNew == 'shelf'}}">
+    <text>shelf</text>
+</block>

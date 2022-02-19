@@ -1,0 +1,44 @@
+<view class="card-block">
+    <view class="funcMenuManagerBar">
+
+        <view class="cate_detailBar">
+            <text class="func-lib-bar-text">书架名</text>
+            <view class="cate_detailInput" style="margin-left: 70rpx;">
+                <input type="text" value="{{curShelf[1]}}" bindinput="ChangeShelfName" maxlength="6" />
+            </view>
+        </view>
+
+        <view class="divLine_book_detail"></view>
+
+        <view class="cate_detailBar">
+            <text class="func-lib-bar-text">书架排序</text>
+            <view class="cate_detailInput" style="margin-left: 38rpx;">
+                <input type="number" value="{{curShelf[0]}}" bindinput="ChangeShelfId" maxlength="6" />
+            </view>
+        </view>
+
+    </view>
+</view>
+
+<view class="card-block">
+    <view wx:for="{{book_in_shelf}}" wx:key="index" data-id="{{item._id}}" data-index="{{index}}" bindtap="OpenBookDetail" class="funcMenuManagerBar">
+        <view class="catalogueBar">
+            <image src="{{item.book_cover}}" class="book_in_Cata_cover" mode="aspectFill"></image>
+            <view class="cata_bar_text-view">
+                <text class="cata_bar_text">{{item.book_title}}</text>
+                <view class="copyInfo-view">
+                    <text class="OnshelfDate-text">副本编号：{{item.copy_id}}</text>
+                    <text class="OnshelfDate-text">{{item.OnShelfDate}} 录入</text>
+                </view>
+            </view>
+            <view class="arrowView">
+                <view class="arrow"></view>
+            </view>
+        </view>
+        <view class="cata_divLine"></view>
+    </view>
+</view>
+
+<view class="fixedButton">
+    <button type="primary" bindtap="SaveShelfInfo">保存</button>
+</view>

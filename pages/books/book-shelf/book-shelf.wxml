@@ -1,2 +1,19 @@
-<!--pages/books/book-shelf/book-shelf.wxml-->
-<text>pages/books/book-shelf/book-shelf.wxml</text>
+<view class="card-block">
+    <view class="funcMenuManagerBar">
+        <view class="func-lib-bar func-lib-bar-padding" bindtap="AddNewCategory">
+            <text class="addNew">新建书架 +</text>
+        </view>
+    </view>
+</view>
+
+<view class="card-block">
+    <view wx:for="{{shelf_list}}" wx:key="index" data-info="{{item._id}}" data-index="{{index}}" bindtap="OpenShelfDetail" class="funcMenuManagerBar">
+        <view class="func-lib-bar func-lib-bar-padding">
+            <text class="func-lib-bar-text">{{item._id[1]}}  ({{item.num}})</text>
+            <view class="arrowView">
+                <view class="arrow"></view>
+            </view>
+        </view>
+        <view class="divLine_Catalogue"></view>
+    </view>
+</view>

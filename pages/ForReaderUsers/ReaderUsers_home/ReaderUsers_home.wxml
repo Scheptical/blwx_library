@@ -1,0 +1,97 @@
+<!-- 普通菜单模板 -->
+<template name="tabBar">
+    <view class="cu-bar tabbar bg-white foot">
+        <view class="action" bindtap="NavChange" data-cur="{{item.currentUrl}}" data-url="{{item.pagePath}}" wx:for="{{menus.list}}" wx:key="currentUrl">
+            <view class='cuIcon-cu-image'>
+                <image src="{{menus.activeUrl==item.currentUrl?item.selectedIconPath:item.iconPath}}"></image>
+            </view>
+            <view class="{{menus.activeUrl==item.currentUrl?'text-green':'text-gray'}}">{{item.text}}</view>
+        </view>
+    </view>
+</template>
+
+<!-- 读者权限 -->
+<user_home wx:if="{{PageCur=='user_home'}}"></user_home>
+<rentBook wx:if="{{PageCur=='rentBook'}}"></rentBook>
+<MyInfo wx:if="{{PageCur=='MyInfo'}}"></MyInfo>
+
+<!-- tabar菜单 -->
+<template is="tabBar" data="{{menus}}" />
+
+<!-- 页面：首页 -->
+<block wx:if="{{PageCur=='user_home'}}">
+    <view class="viewMarginBottom">
+        <!-- 最新上架 -->
+        <view class="homeView-New">
+            <view class="hometitle-New-View">
+                <text class="homeTitle-text">最新上架</text>
+                <view class="homeTitleRight-View" data-more="New" bindtap="OpenPageDetail">
+                    <text class="homeArrow-text">更多</text>
+                    <view class="homeArrow"></view>
+                </view>
+            </view>
+            <scroll-view scroll-x="true">
+                <view class="display-New">
+                    <view class="book_item" wx:for="{{curBookList}}" wx:key="index" wx:if="{{index < 12}}">
+                        <view class="book_cover-View">
+                            <image class="display-New-book_cover" mode="aspectFit" src="{{item.book_cover}}"></image>
+                        </view>
+                        <view class="book_title-View">
+                            <text class="display-New-book_title">{{item.book_title}}</text>
+                            <text class="display-New-book_author">{{item.author}}</text>
+                        </view>
+                    </view>
+                </view>
+            </scroll-view>
+        </view>
+
+        <!-- 热门书籍 -->
+        <view class="homeView-New">
+            <view class="hometitle-New-View">
+                <text class="homeTitle-text">热门书籍</text>
+                <view class="homeTitleRight-View">
+                    <text class="homeArrow-text" data-more="Hot" bindtap="OpenPageDetail">更多</text>
+                    <view class="homeArrow"></view>
+                </view>
+            </view>
+            <view>
+
+            </view>
+        </view>
+
+        <!-- 分类查看 -->
+        <view class="homeView-New">
+            <view class="hometitle-New-View">
+                <text class="homeTitle-text">分类</text>
+                <view class="homeTitleRight-View">
+                    <text class="homeArrow-text" data-more="Category" bindtap="OpenPageDetail">更多</text>
+                    <view class="homeArrow"></view>
+                </view>
+            </view>
+            <view>
+
+            </view>
+        </view>
+
+    </view>
+</block>
+
+
+
+<!-- 页面：借还 -->
+<block wx:if="{{PageCur=='rentBook'}}">
+    <view class="viewMarginBottom">
+
+    </view>
+</block>
+
+
+
+<!-- 页面：我的 -->
+<block wx:if="{{PageCur=='MyInfo'}}">
+    <view class="viewMarginBottom">
+        <view wx:for="{{50}}" wx:key="index">
+            MyInfo
+        </view>
+    </view>
+</block>

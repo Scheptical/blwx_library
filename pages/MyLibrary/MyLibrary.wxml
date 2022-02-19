@@ -4,8 +4,11 @@
     <navigator url="{{item.url}}">
       <view class="func-lib-bar">
         <text class="func-lib-bar-text">{{item.name}}</text>
+        <view class="arrowView">
+          <view class="arrow"></view>
+        </view>
       </view>
     </navigator>
-    <view class="divLine"></view>
+    <view class="divLine_MyLib"></view>
   </view>
 </view>

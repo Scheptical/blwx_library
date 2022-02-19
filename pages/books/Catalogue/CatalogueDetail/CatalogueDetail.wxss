@@ -1,0 +1,66 @@
+@import "/pages/books/book_detail_vip/book_detail_vip.wxss";
+
+.catalogueBar{
+    display: flex;
+    text-align: center;
+    flex-direction: row;
+    margin: 10rpx 0 10rpx;
+}
+
+.book_in_Cata_cover {
+    width: 240rpx;
+    height: 240rpx;
+}
+
+.cata_bar_text-view {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 420rpx;
+}
+
+.cata_bar_text {
+    font-size: 34rpx;
+    font-weight: 900;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 420rpx;
+    height: 60rpx;
+    line-height: normal;
+    text-align: left;
+    padding: 10rpx 0rpx;
+    margin-right: 10rpx;
+}
+
+.cata_divLine{
+    background: #dddddd;
+    height: 1rpx;
+    width: 100%;
+    margin-left: 240rpx;
+}
+
+.fixedButton {
+    display: flex;
+    position: fixed;
+    bottom: 20rpx;
+    justify-content: center;
+    width: 100%;
+}
+
+.cate_detailBar {
+    display: flex;
+    flex-direction: row;
+    padding: 10rpx 20rpx;
+    height: max-content;
+}
+
+.cate_detailInput {
+    font-size: 34rpx;
+    text-align: left;
+    vertical-align: middle;
+    padding: 30rpx 0;
+    width: max-content;
+}

@@ -1,53 +1,29 @@
-<!--pages/books/books.wxml-->
-<view class="card-block">
+<view class="card-block card-block-padding">
     <view class="funcMenuManagerBox">
-        <view class="func-lib-box">
-            <navigator url="/pages/books/Scan-book/Scan-book">
-                <image class="func-lib-box-img" src="/images/book_selected.png"></image>
-                <view class="func-lib-box-text"><text>扫码录书</text></view>
-            </navigator>
-        </view>
-        <view class="func-lib-box">
-            <navigator url="/pages/books/Mannual-book/Mannual-book">
-                <image class="func-lib-box-img" src="/images/book_selected.png"></image>
-                <view class="func-lib-box-text"><text>手动录书</text></view>
-            </navigator>
-        </view>
-        <view class="func-lib-box">
-            <navigator url="/pages/books/put-on-shelf/put-on-shelf">
-                <image class="func-lib-box-img" src="/images/book_selected.png"></image>
-                <view class="func-lib-box-text"><text>上架</text></view>
-            </navigator>
-        </view>
-        <view class="func-lib-box">
-            <navigator url="/pages/books/off-the-shelf/off-the-shelf">
-                <image class="func-lib-box-img" src="/images/book_selected.png"></image>
-                <view class="func-lib-box-text"><text>下架</text></view>
+        <view wx:for="{{func_lib_bookShift}}" wx:key="index" data-id="{{item.func_id}}" data-index="{{index}}" class="func-lib-Book-box">
+            <navigator url="{{item.func_url}}">
+                <image class="func-lib-box-img" src="{{item.func_imgSrc}}"></image>
+                <view class="func-lib-box-Book-text"><text>{{item.func_name}}</text></view>
             </navigator>
         </view>
     </view>
 </view>
+
 <view class="card-block">
-    <view class="funcMenuManagerBar">
-        <navigator url="/pages/books/Catalogue/Catalogue">
+    <view wx:for="{{func_lib_bookViewer}}" wx:key="index" data-id="{{item.func_id}}" data-index="{{index}}" class="funcMenuManagerBar">
+        <navigator url="{{item.func_url}}">
             <view class="func-lib-bar">
-                <image class="func-lib-bar-img" src="/images/book_selected.png"></image><text class="func-lib-bar-text">分类</text>
+                <image class="func-lib-bar-img" src="{{item.func_imgSrc}}"></image>
+                <text class="func-lib-bar-text">{{item.func_name}}</text>
+                <view class="arrowView">
+                    <view class="arrow"></view>
+                </view>
             </view>
         </navigator>
         <view class="divLine"></view>
-        <navigator url="/pages/books/book-shelf/book-shelf">
-            <view class="func-lib-bar">
-                <image class="func-lib-bar-img" src="/images/book_selected.png"></image><text class="func-lib-bar-text">书架</text>
-            </view>
-        </navigator>
-        <view class="divLine"></view>
-        <navigator url="/pages/books/reader-recomme/reader-recomme">
-            <view class="func-lib-bar">
-                    <image class="func-lib-bar-img" src="/images/book_selected.png"></image><text class="func-lib-bar-text">读者荐购</text>
-            </view>
-        </navigator>
     </view>
 </view>
+
 <view class="card-block">
     
 </view>

@@ -1,10 +1,15 @@
 /* pages/books/books.wxss */
-.func-lib-box{
+.func-lib-Book-box{
     display: inline-block;
-    width: 120rpx;
-    height: 120rpx;
+    width: 150rpx;
+    height: 150rpx;
     padding: 0 5rpx;
     margin:20rpx 20rpx 0rpx 20rpx;
     border-radius: 60px;
 }
+
+.func-lib-box-Book-text {
+    font-size: 30rpx;
+    text-align: center;
+  }
 

@@ -1,21 +1,19 @@
-<!--pages/books/Catalogue/Catalogue.wxml-->
 <view class="card-block">
-  <view wx:for="{{category}}" wx:key="index" data-id="{{item.id}}" data-index="{{index}}" class="funcMenuManagerBar">
-    <navigator url="{{item.url}}">
-      <view class="func-lib-bar">
-        <text class="func-lib-bar-text">{{item.name}}</text>
-      </view>
-    </navigator>
-    <view class="divLine"></view>
-  </view>
+    <view class="funcMenuManagerBar">
+        <view class="func-lib-bar func-lib-bar-padding" bindtap="AddNewCategory">
+            <text class="addNew">新建目录 +</text>
+        </view>
+    </view>
 </view>
 
 <view class="card-block">
-  <view class="funcMenuManagerBar">
-    <navigator url="/pages/books/Catalogue/unCate/unCate">
-      <view class="func-lib-bar">
-        <text class="func-lib-bar-text">未分类</text>
-      </view>
-    </navigator>
-  </view>
+    <view wx:for="{{category_list}}" wx:key="index" data-info="{{item._id}}" data-index="{{index}}" bindtap="OpenCategoryDetail" class="funcMenuManagerBar">
+        <view class="func-lib-bar func-lib-bar-padding">
+            <text class="func-lib-bar-text">{{item._id[1]}}  ({{item.num}})</text>
+            <view class="arrowView">
+                <view class="arrow"></view>
+            </view>
+        </view>
+        <view class="divLine_Catalogue"></view>
+    </view>
 </view>

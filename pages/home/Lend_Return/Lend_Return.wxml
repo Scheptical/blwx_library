@@ -1,0 +1,7 @@
+<scroll-view scroll-x class="bg-white nav">
+  <view class="flex text-center">
+    <view class="cu-item flex-sub {{index==TabCur?'selectedGreen cur':''}}" wx:for="{{func_lib_LendReturn}}" wx:key="index" bindtap="tabSelect" data-id="{{index}}">
+      {{item.func_name}}
+    </view>
+  </view>
+</scroll-view>

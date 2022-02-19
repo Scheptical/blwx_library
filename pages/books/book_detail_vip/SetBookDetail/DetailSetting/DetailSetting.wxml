@@ -1,0 +1,85 @@
+<!--价格设置-->
+<block wx:if="{{DetailInfo.detailId == 3}}">
+    <view class="detailName">
+        <text>价格：</text>
+    </view>
+
+    <view class="inputbox-setting">
+        <view class="detailSettingTitle">货币种类</view>
+        <view>
+            <picker bindchange="CurrencyChange" range="{{CurrencyRange}}" value="{{CurrencyIndex}}">
+                <view class="SettingInput">
+                    {{CurrencyRange[CurrencyIndex]}}
+                </view>
+            </picker>
+        </view>
+        <view class="arrowView">
+            <view class="arrow-downwards"></view>
+        </view>
+    </view>
+
+    <view class="inputbox-setting">
+        <view class="detailSettingTitle">价　　格</view>
+        <view>
+            <input class="SettingInput" bindinput="ChangeDetailData" value="{{curPrice}}" />
+        </view>
+        <view class="arrowView">
+            <image src="/images/Cancel.png" class="clearInputImg" bindtap="clearInput"></image>
+        </view>
+    </view>
+
+    <view style="margin: 20rpx 0;">
+        <button bindtap="SaveDetailBack" type="primary">保存</button>
+    </view>
+</block>
+
+
+
+<!--出版时间设置-->
+<block wx:elif="{{DetailInfo.detailId == 11}}">
+    <view class="detailName">
+        <text>出版时间：</text>
+    </view>
+
+    <view class="inputbox-setting">
+        <picker bindchange="DateChange" mode="date" start="1949-10-01" end="{{curDate}}" value="{{DetailInfo.detailContent}}">
+            <view class="SettingInput" style="align-items: center; text-align: center;">
+                {{DetailInfo.detailContent}}
+            </view>
+        </picker>
+        <view class="arrowView">
+            <view class="arrow-downwards"></view>
+        </view>
+        <!--手动输入-->
+        <!--
+        <input class="SettingInput" bindinput="ChangeDetailData" value="{{DetailInfo.detailContent}}" />
+        <view class="arrowView">
+            <image src="/images/Cancel.png" class="clearInputImg" bindtap="clearInput"></image>
+        </view>
+        -->
+    </view>
+
+    <view style="margin: 20rpx 0;">
+        <button bindtap="SaveDetailBack" type="primary">保存</button>
+    </view>
+</block>
+
+
+
+<!--其他设置-->
+<block wx:else>
+    <view class="detailName">
+        <text>{{DetailInfo.detailName}}：</text>
+    </view>
+
+    <view class="inputbox-setting">
+        <textarea auto-height="true" maxlength="-1" class="SettingTextarea" bindinput="ChangeDetailData" value="{{DetailInfo.detailContent}}" />
+        <view class="arrowView">
+            <image src="/images/Cancel.png" class="clearInputImg" bindtap="clearInput"></image>
+        </view>
+    </view>
+    
+    <view style="margin: 20rpx 0;">
+        <button bindtap="SaveDetailBack" type="primary">保存</button>
+    </view>
+</block>
