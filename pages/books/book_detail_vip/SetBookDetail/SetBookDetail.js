@@ -6,9 +6,12 @@ Page({
     data: {
         entrance: '',
 
-        curBookIndex: null,
-        curBookId: null,
-        curBookCoverUrl: null,
+        curBookIndex: '',
+        curBookId: '',
+
+        curBookCoverUrl: '',
+        imgToCloud: '',
+
         curBookDetail: [],
         DetailSetMenu: []
     },
@@ -18,33 +21,22 @@ Page({
         var self = this
 
         wx.chooseImage({
-            count: 1, //默认9
+            count: 1, // 选择1张图
             sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
             sourceType: ['album', 'camera'], // 从相册选择，拍照
             success: (res) => {
-                wx.cloud.deleteFile({
-                    fileList: [self.data.DetailSetMenu[0].detailContent],
-                    success: res_delOriCover => {
-                        var imgFilePath = res.tempFilePaths[0]
-                        var imgFormat = imgFilePath.substring(imgFilePath.lastIndexOf('.'), imgFilePath.length)
-                        var imgCloudPath = 'book_cover/' + self.data.DetailSetMenu[3].detailContent + imgFormat
-                        wx.cloud.uploadFile({
-                            cloudPath: imgCloudPath,
-                            filePath: imgFilePath,
-                            success: res_cover => {
-                                self.setData({
-                                    curBookCoverUrl: res_cover.fileID,
-                                    'DetailSetMenu[0].detailContent': res_cover.fileID
-                                })
-                            },
-                            fail: res_cover => {
-                                console.log('res_coverFail>>>', res_cover)
-                            }
-                        })
-                    },
-                    fail: res_delOriCover => {
-                        console.log('res_delOriCover_Fail>>>', res_delOriCover)
-                    }
+                // 获取临时路径
+                var imgFilePath = res.tempFilePaths[0]
+                
+                // 获取云存储中图片文件后缀格式
+                var imgOriUrl = self.data.DetailSetMenu[0].detailContent
+                var imgFormat = imgOriUrl.substring(imgOriUrl.lastIndexOf('.'), imgOriUrl.length)
+                // 构建云路径，覆盖原文件
+                var imgCloudPath = 'book_cover/' + self.data.DetailSetMenu[3].detailContent + imgFormat
+
+                self.setData({
+                    curBookCoverUrl: imgFilePath,
+                    imgToCloud: imgCloudPath
                 })
             }
         });
@@ -82,12 +74,20 @@ Page({
                 publication_date: that.data.DetailSetMenu[10].detailContent,
             },
             success: res_update => {
+                wx.cloud.uploadFile({
+                    cloudPath: that.data.imgToCloud,
+                    filePath: that.data.curBookCoverUrl,
+                    success: res_cover => {
+                        console.log('res_cover>>>', res_cover)
+                    }
+                })
+
                 console.log('res_update>>>', res_update)
+                // 若更新成功，则再次请求数据库，更新当前书籍信息
                 library_db.collection('LibraryBooksInfo').where({
                     _id: that.data.curBookDetail._id
                 }).get({
                     success: res => {
-                        // 若更新成功，则再次请求数据库，更新当前书籍信息
                         if (that.data.entrance == 'category') { // 从分类页进入，更新App_book_in_cate
                             The_App.globalData.App_book_in_cate[that.data.curBookIndex] = res.data[0]
                         } else if (that.data.entrance == 'shelf') { // 从书架页进入，更新App_book_in_shelf
@@ -119,13 +119,14 @@ Page({
     },
 
     onLoad: function (options) {
+
         var self = this
         if (options.entrance == 'category') {
             // 从分类页面进入
             // 继承上一页面书籍index信息
             self.setData({
                 curBookIndex: options.curBookIndex,
-                entrance: options.entrance // 标记entrance
+                entrance: options.entrance, // 标记entrance
             });
             // 根据index在全局数据中查询该书籍信息
             var curBookInfo_App = The_App.globalData.App_book_in_cate[options.curBookIndex]
@@ -142,6 +143,7 @@ Page({
         self.setData({
             // 将该书籍信息保存到本地以供渲染
             curBookDetail: curBookInfo_App,
+            curBookCoverUrl: curBookInfo_App.book_cover,
             // 定义书籍信息设置菜单，便于展示、修改和数据库更新
             DetailSetMenu: [{
                     detailName: '书籍封面',
@@ -207,7 +209,7 @@ Page({
     },
 
     onShow: function () {
-
+        
     },
 
     onHide: function () {
@@ -227,6 +229,6 @@ Page({
     },
 
     onShareAppMessage: function () {
-
+        
     }
 })

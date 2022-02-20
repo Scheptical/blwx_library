@@ -5,7 +5,7 @@
             <view wx:if="{{item.detailId == 1}}" class="book_detailBar" wx:key="index" data-id="{{item.detailId}}" data-index="{{index}}">
                 <text class="func-lib-bar-text">{{item.detailName}}</text>
                 <view class="book_detailBar_right" bindtap="ChangeCover">
-                    <image src="{{item.detailContent}}" class="book_cover-detail"></image>
+                    <image src="{{curBookCoverUrl}}" class="book_cover-detail"></image>
                     <view class="arrowView">
                         <view class="arrow"></view>
                     </view>
