@@ -1,23 +1,18 @@
-
 Page({
   data: {
     TabCur: 0,
     scrollLeft: 0,
     func_lib_LendReturn: [{
         func_name: '在借',
-        func_id: 0,
       },
       {
         func_name: '已还',
-        func_id: 1,
       },
       {
         func_name: '逾期',
-        func_id: 2,
       },
       {
         func_name: '预约',
-        func_id: 3,
       }
     ]
   },
