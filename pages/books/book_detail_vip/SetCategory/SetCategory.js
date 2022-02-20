@@ -3,6 +3,7 @@ const The_App = getApp()
 Page({
 
     data: {
+        curBookIndex: null,
         curBookId: null,
         curBookCate: null,
         categoryList: [],
@@ -28,7 +29,7 @@ Page({
             },
             success: res_update => {
                 console.log('res_update>>>', res_update)
-
+                The_App.globalData.App_book_in_cate[that.data.curBookIndex].book_category = that.data.curBookCate
                 wx.navigateBack({
                     delta: 1,
                   })
@@ -38,7 +39,6 @@ Page({
                     title: '失败',
                     icon: 'error'
                 })
-
                 console.error('error>>>', res_update)
             }
         })
@@ -47,6 +47,7 @@ Page({
     onLoad: function (options) {
         this.setData({
             categoryList: The_App.globalData.categoryData,
+            curBookIndex: options.curBookIndex,
             curBookId: The_App.globalData.App_book_in_cate[options.curBookIndex]._id,
             curBookCate: The_App.globalData.App_book_in_cate[options.curBookIndex].book_category
         })
@@ -57,7 +58,9 @@ Page({
     },
 
     onShow: function () {
-
+        this.setData({
+            curBookCate: The_App.globalData.App_book_in_cate[this.data.curBookIndex].book_category
+        })
     },
 
     /**

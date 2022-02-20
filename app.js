@@ -26,6 +26,7 @@ App({
     ShelfData: [],    // 书架数据
     App_copy_in_shelf: [],    //
     App_book_in_shelf: [],
+    flag_detailVIP_onShow: false,
 
     /* 读者版 */
     LibraryBooks_App: [],

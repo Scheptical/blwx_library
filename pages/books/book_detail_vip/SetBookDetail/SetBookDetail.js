@@ -8,6 +8,7 @@ Page({
 
         curBookIndex: null,
         curBookId: null,
+        curBookCoverUrl: null,
         curBookDetail: [],
         DetailSetMenu: []
     },
@@ -15,13 +16,35 @@ Page({
     //更换封面
     ChangeCover: function (e) {
         var self = this
+
         wx.chooseImage({
-            count: 1,    //默认9
-            sizeType: ['original', 'compressed'],    // 可以指定是原图还是压缩图，默认二者都有
-            sourceType: ['album', 'camera'],    // 从相册选择，拍照
+            count: 1, //默认9
+            sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+            sourceType: ['album', 'camera'], // 从相册选择，拍照
             success: (res) => {
-                self.setData({
-                    "DetailSetMenu[0].detailContent": res.tempFilePaths
+                wx.cloud.deleteFile({
+                    fileList: [self.data.DetailSetMenu[0].detailContent],
+                    success: res_delOriCover => {
+                        var imgFilePath = res.tempFilePaths[0]
+                        var imgFormat = imgFilePath.substring(imgFilePath.lastIndexOf('.'), imgFilePath.length)
+                        var imgCloudPath = 'book_cover/' + self.data.DetailSetMenu[3].detailContent + imgFormat
+                        wx.cloud.uploadFile({
+                            cloudPath: imgCloudPath,
+                            filePath: imgFilePath,
+                            success: res_cover => {
+                                self.setData({
+                                    curBookCoverUrl: res_cover.fileID,
+                                    'DetailSetMenu[0].detailContent': res_cover.fileID
+                                })
+                            },
+                            fail: res_cover => {
+                                console.log('res_coverFail>>>', res_cover)
+                            }
+                        })
+                    },
+                    fail: res_delOriCover => {
+                        console.log('res_delOriCover_Fail>>>', res_delOriCover)
+                    }
                 })
             }
         });
@@ -40,6 +63,7 @@ Page({
     // 更新数据库
     SaveDetailToServer: function (e) {
         var that = this
+
         // 调用云函数UpdateBookDetail，更新数据库中记录
         wx.cloud.callFunction({
             name: 'UpdateBookDetail',
@@ -59,16 +83,14 @@ Page({
             },
             success: res_update => {
                 console.log('res_update>>>', res_update)
-                //若更新成功，则再次请求数据库，更新当前书籍信息（App.js/globalData.App_book_in_cate[index]）
                 library_db.collection('LibraryBooksInfo').where({
                     _id: that.data.curBookDetail._id
                 }).get({
                     success: res => {
-                        if (that.data.entrance == 'category') {
-                            // 从分类页进入，更新App_book_in_cate
+                        // 若更新成功，则再次请求数据库，更新当前书籍信息
+                        if (that.data.entrance == 'category') { // 从分类页进入，更新App_book_in_cate
                             The_App.globalData.App_book_in_cate[that.data.curBookIndex] = res.data[0]
-                        } else if (that.data.entrance == 'shelf') {
-                            // 从书架页进入，更新App_book_in_shelf
+                        } else if (that.data.entrance == 'shelf') { // 从书架页进入，更新App_book_in_shelf
                             The_App.globalData.App_book_in_shelf = res.data[0]
                         }
                         // 显示更新成功
@@ -103,7 +125,7 @@ Page({
             // 继承上一页面书籍index信息
             self.setData({
                 curBookIndex: options.curBookIndex,
-                entrance: options.entrance    // 标记entrance
+                entrance: options.entrance // 标记entrance
             });
             // 根据index在全局数据中查询该书籍信息
             var curBookInfo_App = The_App.globalData.App_book_in_cate[options.curBookIndex]

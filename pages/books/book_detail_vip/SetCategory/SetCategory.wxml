@@ -2,7 +2,7 @@
     <view wx:for="{{categoryList}}" wx:key="index" data-id="{{item._id[0]}}" data-index="{{index}}" bindtap="CateRadioChange" class="funcMenuManagerBar">
         <view class="func-lib-bar func-lib-bar-padding">
             <text class="func-lib-bar-text">{{item._id[1]}}</text>
-            <view class="arrowView" hidden="{{curBookCate[0] == item._id[0]?false:selected_hidden == item._id[0]?false:true}}">
+            <view class="arrowView" hidden="{{curBookCate[0] == item._id[0] ? false : selected_hidden == item._id[0] ? false : true}}">
                 <image class="selected_Img" src="/images/selected.png"></image>
             </view>
         </view>

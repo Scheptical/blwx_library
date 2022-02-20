@@ -12,10 +12,10 @@ exports.main = async (event, context) => {
         }).update({
             data: {
                 ISBN: event.ISBN,
-                book_cover: event.book_cover,
                 artist: event.artist,
                 author: event.author,
                 translator: event.translator,
+                book_cover: event.book_cover,
                 book_desc: event.book_desc,
                 book_title: event.book_title,
                 book_content: event.book_content,

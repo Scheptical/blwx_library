@@ -6,9 +6,9 @@ Page({
     data: {
         // 详情页入口标识
         entrance: '',
+
         // 分类页面进入
         book_index: null,
-
         book_id: null,
         book_copies: {
             copyNum: null,
@@ -19,15 +19,13 @@ Page({
         // 书架页面进入
         book_indexShelf: null,
         book_detail_vipShelf: [],
-
-        // onShow控制器（控制onShow函数执行顺序）
-        flag: false
     },
 
     // 查看封面大图
     PreviewCoverImg: function (e) {
         var that = this
-        var coverImg_url = that.data.book_detail_vip[0].book_cover
+        var coverImg_url = that.data.book_detail_vip.book_cover
+
         wx.previewImage({
             urls: [coverImg_url],
             current: coverImg_url
@@ -47,7 +45,7 @@ Page({
     // 跳转分类设置页面
     SetCategory: function (e) {
         var that = this
-        var curCateId = that.data.book_detail_vip[0].book_category[0]
+        var curCateId = that.data.book_detail_vip.book_category[0]
         var curBookIndex = that.data.book_index
         wx.navigateTo({
             url: '/pages/books/book_detail_vip/SetCategory/SetCategory?curCateId=' + curCateId + '&curBookIndex=' + curBookIndex,
@@ -73,6 +71,9 @@ Page({
                 book_detail_vip: The_App.globalData.App_book_in_cate[options.book_index], // 从全局数据获取当前书本信息
                 book_id: The_App.globalData.App_book_in_cate[options.book_index]._id,
             })
+            The_App.globalData.flag_detailVIP_onShow = true
+            // 此时data.flag为true，执行onShow函数
+            self.onShow()
 
             // 根据ISBN，从LibBooksCopy获取副本信息
             library_db.collection('LibBooksCopy').where({
@@ -107,9 +108,9 @@ Page({
                     self.setData({
                         book_detail_vip: res.data[0],
                         book_id: res.data[0]._id,
-                        flag: true // data中设置完book_id，再赋值flag: true执行onShow函数
                     });
                     The_App.globalData.App_book_in_shelf = res.data[0]
+                    The_App.globalData.flag_detailVIP_onShow = true
                     // 此时data.flag为true，执行onShow函数
                     self.onShow()
                 },
@@ -142,7 +143,7 @@ Page({
     onShow: function () {
         var self = this
         // 首次载入页面，flag为false，onShow函数先不执行；等到onLoad函数中改变flag为true后，在onLoad中调用onShow
-        if (self.data.flag == true) {
+        if (The_App.globalData.flag_detailVIP_onShow == true) {
             // 每次跳转至该页面，同步一次页面数据（请求数据库），并在全局数据中更新当前书籍信息
             library_db.collection("LibraryBooksInfo").where({
                 _id: self.data.book_id

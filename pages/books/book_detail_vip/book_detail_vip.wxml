@@ -56,7 +56,7 @@
         <view class="book_detailBar">
             <text class="func-lib-bar-text">在馆副本：{{book_copies.copyNum}}本</text>
             <!-- 本书副本编号 -->
-            <view class="book_detailBar_right">
+            <view wx:if="{{entrance == 'shelf'}}" class="book_detailBar_right">
                 <text class="book_detail_text-Right">副本编号：{{book_detail_vipShelf.copy_id}}</text>
             </view>
         </view>
