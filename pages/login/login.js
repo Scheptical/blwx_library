@@ -13,6 +13,7 @@ Page({
 
     },
 
+    // 之后应改用wx.getUserProfile()接口
     getUserInfo (e) {
         wx.cloud.callFunction({
             name: 'getopenid', //调用云函数获取用户唯一openid

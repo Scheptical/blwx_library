@@ -16,6 +16,7 @@ Page({
         })
     },
 
+    // 保存
     SaveCateInfo: function (e) {
         var self = this
 

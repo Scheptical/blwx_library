@@ -1,3 +1,4 @@
+<!-- 新建目录 -->
 <view class="card-block">
     <view class="funcMenuManagerBar">
         <view class="func-lib-bar func-lib-bar-padding" bindtap="AddNewCategory">
@@ -6,6 +7,7 @@
     </view>
 </view>
 
+<!-- 目录列表 -->
 <view class="card-block">
     <view wx:for="{{category_list}}" wx:key="index" data-info="{{item._id}}" data-index="{{index}}" bindtap="OpenCategoryDetail" class="funcMenuManagerBar">
         <view class="func-lib-bar func-lib-bar-padding">

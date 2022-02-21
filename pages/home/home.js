@@ -2,6 +2,7 @@
 Page({
 
     data: {
+        // 借还管理
         func_lib_LendReturn: [
             {
                 func_name: '在借',
@@ -28,6 +29,7 @@ Page({
                 func_url: '/pages/Lend_Return/Lend_Return'
             }
         ],
+        // 内容管理
         func_lib_ContentManager: [{
                 func_name: '公告',
                 func_id: 4,
@@ -48,10 +50,12 @@ Page({
             }
         ]
     },
+
+    // 查看借还管理信息
     openLendReturnMenu: function(e){
-        const TabId = e.currentTarget.dataset.id;
+        const TabId = e.currentTarget.dataset.id;    // 获取用户点击功能的id
         wx.navigateTo({
-          url: '/pages/home/Lend_Return/Lend_Return?TabId='+TabId,
+          url: '/pages/home/Lend_Return/Lend_Return?TabId=' + TabId, // 跳转到借还页面，将id信息传递给借还页面
         })
     },
 

@@ -16,12 +16,14 @@ Page({
       }
     ]
   },
-  tabSelect(e) {
+
+  tabSelect (e) {
     this.setData({
       TabCur: e.currentTarget.dataset.id,
       scrollLeft: (e.currentTarget.dataset.id - 1) * 60
     })
   },
+
   onLoad: function (options) {
     this.setData({
       TabCur: options.TabId,

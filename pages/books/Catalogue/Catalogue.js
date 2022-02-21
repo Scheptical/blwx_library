@@ -2,16 +2,18 @@ const The_App = getApp()
 
 Page({
     data: {
-        addNew: 'cate',
-        category_list: [],
+        addNew: 'cate',    // 跳转新建页面：传递参数“目录”，代表新建目录操作
+        category_list: [],    // 从数据库：获取所有目录并存为列表
     },
 
+    // 点击事件：跳转到新建页面并传入参数 addNew = 'cate' ，表明是新建目录操作
     AddNewCategory: function (e) {
         wx.navigateTo({
           url: '../NewCate_Shelf/NewCate_Shelf?addNew=' + this.data.addNew,
         })
     },
 
+    // 点击事件：点击分类，进入分类详情查看该分类下的所有书籍
     OpenCategoryDetail: function (e) {
         var cate_info = e.currentTarget.dataset.info
         wx.navigateTo({

@@ -1,6 +1,7 @@
 Page({
 
     data: {
+        // 录入/上下架操作
         func_lib_bookShift: [
             {
                 func_name: '扫码录书',
@@ -27,6 +28,8 @@ Page({
                 func_url: '/pages/books/off-the-shelf/off-the-shelf'
             }
         ],
+
+        // 查看书籍信息
         func_lib_bookViewer: [{
                 func_name: '分类',
                 func_id: 4,
@@ -49,7 +52,7 @@ Page({
     },
 
     onLoad: function (options) {
-
+        // 之后会在下方添加书籍信息界面
     },
 
     onReady: function () {
